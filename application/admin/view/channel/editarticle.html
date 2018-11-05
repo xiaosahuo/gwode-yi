@@ -1,0 +1,76 @@
+{include file="public:head" /}
+
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">选择章节内容</a>
+    </ol>
+    <div class='content'>
+        <div class="block-content">
+            <form class="form-builder row" name="form-builder" action="{:url('Channel/saveChapter')}" method="post">
+                <div class="form-group col-md-12 " id="form_group_title">
+
+                    <label class="col-xs-12" for="bookid">选择书籍</label>
+                    <div class="col-xs-12">
+                        <select  class="selectpicker show-tick form-control" name='bookid' id="bookid"  data-live-search="true">
+                            <option value="0" >请选择</option>
+                            {volist name="booklist" id="bvo"}
+                            <option value="{$bvo.id}" {if condition="$bvo.id eq $bookid"} selected = "selected" {/if}>{$bvo.title}{if condition="$bvo.id eq -1"} --当前选择{/if}</option>
+                            {/volist}
+                        </select>
+                    </div>
+
+                    <label class="col-xs-12" for="chapterid" style="padding-top: 20px;">选择章节</label>
+                    <div class="col-xs-12">
+                        <select  class="selectpicker show-tick form-control" name='chapterid' id="chapterid"  data-live-search="true">
+                            <option value="0" >请选择</option>
+                            {notempty name="chapterlist"}
+                            {volist name="chapterlist" id="chvo"}
+                            <option value="{$chvo.id}" {if condition="$chvo.id eq $chapterid"} selected = "selected" {/if}>{$chvo.title}{if condition="$chvo.id eq -1"} --当前选择{/if}</option>
+                            {/volist}
+                            {/notempty}
+                        </select>
+                    </div>
+                </div>
+
+                <input type="hidden" name="id" value="{$id}">
+                <div class="form-group col-md-12">
+                    <div class="col-xs-12">
+                        <button class="btn btn-minw btn-primary " target-form="form-builder" type="submit" autocomplete="off" id="submit">提交</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#bookid').change(function (data) {
+                var bookid = $("#bookid").val();
+                var url = "{:url('Channel/getChapterList')}";
+                var data = {bookid:bookid};
+
+                $("#chapterid").next().find("li").remove();
+                $("#chapterid").empty();
+
+                $.post(url,data,function(res){
+                    var obj = eval('(' + res + ')');
+                    var optionstr = "";
+                    var listr = "";
+                    for (var i = 0; i < obj.length; i++) {
+                        optionstr += '<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                        listr += '<li data-original-index="'+obj[i].id+'"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>'+obj[i].title+'</span>" data-tokens="null"><span class="text">'+obj[i].title+'</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>';
+                    }
+                    $("#chapterid").next().find("ul").append(listr);
+                    $("#chapterid").append(optionstr);
+                    $("#chapterid").selectpicker('refresh');
+
+                });
+            });
+        });
+
+    </script>
+
+    {include file="public:foot" /}
+
+

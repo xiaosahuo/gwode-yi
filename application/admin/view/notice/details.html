@@ -1,0 +1,77 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">推送充值列表</a>
+    </ol>
+    <div class='content'>
+        <form action="{:url('Notice/details')}" method="get">
+            <div class="col-xs-2">
+                <input type="date" class="form-control" placeholder="开始时间" name="starttime" value="{if isset($starttime)}{$starttime}{/if}">
+            </div>
+            <div class="col-xs-2">
+                <input type="date" class="form-control" placeholder="结束时间" name="endtime" value="{if isset($endtime)}{$endtime}{/if}">
+            </div>
+            <input type="hidden" name="id" value="{$noticeId}">
+            <button type="submit"  class="btn btn-primary">查询</button>
+            <a href="{:url('Notice/exportData',['id'=>$noticeId,'starttime'=>$starttime,'endtime'=>$endtime])}" class="btn btn btn-success">导出</a>
+        </form>
+
+        <div class="block-content tab-content">
+            <table class="table table-builder table-hover table-bordered table-striped">
+                <tr>
+                    <th width="20%">总计已充值金额</th>
+                    <td>{$pay_count} 元 </td>
+                    <th width="20%">总计未充值金额</th>
+                    <td>{$unpay_count} 元 </td>
+                </tr>
+            </table>
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>订单类型</th>
+                                    <th>用户名称</th>
+                                    <th>充值金额(元)</th>
+                                    <th>充值方式</th>
+                                    <th>充值状态</th>
+                                    <th>充值时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {empty name="data"}
+                                <tr >
+                                    <td colspan="7" align="middle">暂无数据</td>
+                                </tr>
+                                {else /}
+                                {volist name="data" id="vo" key="k"}
+                                <tr>
+                                    <td>{$k} </td>
+                                    <td>{if condition="$vo.paytype eq 1"} VIP年费 {else /} 普通充值 {/if} </td>
+                                    <td>{$vo.username} </td>
+                                    <td>{$vo.money} </td>
+                                    <td>{if condition="$vo.type eq 1"} 支付宝 {else /} 微信 {/if} </td>
+                                    <td>{if condition="$vo.status eq 1"} 已充值 {else /} 未充值 {/if} </td>
+                                    <td>{$vo.addtime|date="Y-m-d H:i:s",###}  </td>
+                                </tr>
+                                {/volist}
+                                {/empty}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {include file="public:foot" /}

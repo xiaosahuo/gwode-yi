@@ -1,0 +1,72 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">推送信息列表</a>
+    </ol>
+    <div class='content'>
+        <form action="{:url('Notice/index')}" method="get">
+            <div class="col-xs-2">
+                <input type="date" class="form-control" placeholder="开始时间" name="starttime" value="{if isset($starttime)}{$starttime}{/if}">
+            </div>
+            <div class="col-xs-2">
+                <input type="date" class="form-control" placeholder="结束时间" name="endtime" value="{if isset($endtime)}{$endtime}{/if}">
+            </div>
+            <button type="submit"  class="btn btn-primary">查询</button>
+        </form>
+        <div class="toolbar-btn-action"></div>
+        <div class="block-content tab-content">
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">ID</th>
+                                    <td>推送时间</td>
+                                    <th>推送标题</th>
+                                    <th>推送链接</th>
+                                    <th>推送书籍</th>
+                                    <th>到达数</th>
+                                    <th>点击数</th>
+                                    <td>充值金额（元）</td>
+                                    <th>支付数量</th>
+                                    <th class="column-right_button">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {volist name="data" id="vo"}
+                                <tr>
+                                    <td>{$vo.id} </td>
+                                    <td>{$vo.create_time|date="Y-m-d H:i:s",###} </td>
+                                    <td>{$vo.n_title} </td>
+                                    <td>{$vo.url} </td>
+                                    <td>{$vo.b_title} </td>
+                                    <td>{$vo.delivered}</td>
+                                    <td>{$vo.click}</td>
+                                    <td>{empty name="$vo.sum_money"} 0  {else /} {$vo.sum_money} {/empty} </td>
+                                    <td>{if condition="$vo['book_id'] eq 0"} 0  {else} {$vo.count_num} {/if} 次</td>
+                                    <td>
+                                        {if condition="$vo['book_id'] eq 0"} {else}
+                                        <a href="{:url('Notice/details',['id' => $vo['id']])}"> 查看 </a>
+                                        {/if}
+                                    </td>
+                                </tr>
+                                {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {include file="public:foot" /}

@@ -1,0 +1,95 @@
+{include file="public:head" /}
+    <main id="main-container" style="min-height: 912px;">
+        <ol class="breadcrumb">
+            <a class="link-effect">排行管理</a>
+        </ol>
+        <div class='content'>
+            <table class="table table-striped table-hover">
+                <thead>
+                <td class="col-xs-2">小说位置</td>
+                <td class="col-xs-5">小说名字</td>
+                <td class="col-xs-2">操作</td>
+                </thead>
+                <tbody>
+                <!--本期精选-->
+                {volist name="res" id="vo"}
+                <tr>
+                    <td>{if condition="$vo.wz eq 'px1'"} 排行默认书籍-1
+                        {elseif condition="$vo.wz eq 'px2'" /}  排行默认书籍-2
+                        {elseif condition="$vo.wz eq 'px3'" /}  排行默认书籍-3
+                        {elseif condition="$vo.wz eq 'px4'" /}  排行默认书籍-4
+                        {elseif condition="$vo.wz eq 'px5'" /}  排行默认书籍-5
+                        {else /} 全体 {/if}
+                        <input type="hidden" name='wz' value="{$vo.wz}" ></td>
+                    <td>
+                        <div class="col-xs-5">
+                            <select  class="selectpicker show-tick form-control" name='bookid'  data-live-search="true">
+                                {if condition="$vo.status eq 0"}
+                                <option value="0"> 请选择 </option>
+                                {/if}
+                                {volist name="book" id="bvo"}
+                                <option value="{$bvo.id}" {if condition="$bvo.id eq $vo.bookid"} selected = "selected" {/if}>{$bvo.title}{if condition="$bvo.id eq $vo.bookid"} --当前选择{/if}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                {/volist}
+                </tbody>
+            </table>
+        </div>
+        <!--页面js-->
+        <script>
+            //追加按钮
+            $('tbody tr').append(`<td>
+            <button class="click btn btn-success btn-large">提交</button>
+        </td>`);
+            //filereader 的方法
+            function changepic() {
+                var reads= new FileReader();
+                f=document.getElementById('file').files[0];
+                reads.readAsDataURL(f);
+                reads.onload=function (e) {
+                    document.getElementById('show').src=this.result;
+                };
+            }
+            function changepic1() {
+                var reads= new FileReader();
+                f=document.getElementById('file1').files[0];
+                reads.readAsDataURL(f);
+                reads.onload=function (e) {
+                    document.getElementById('show1').src=this.result;
+                };
+            }
+            function changepic2() {
+                var reads= new FileReader();
+                f=document.getElementById('file2').files[0];
+                reads.readAsDataURL(f);
+                reads.onload=function (e) {
+                    document.getElementById('show2').src=this.result;
+                };
+            }
+            //找出选中的select选项----用于提交
+            $('.click').click(function(){
+                // 小说位置的id
+                var id=$(this).parents('tr').children('td').eq(0).children('input').val();
+                var trIndex=$(this).parents('tr').index();
+                var value=$('li.selected').eq(trIndex).attr('data-original-index');
+                var bid=$('li.selected').eq(trIndex).parents('div.col-xs-5').children('select').children().eq(value).val();
+                $.ajax({
+                    url: '/admin/index/res',// /wz/'+id+'/bookid/'+bid,
+                    data: {"bookid":bid,"seat":id},
+                    type: 'POST',
+                    error: function (json) {
+                        alert('系统屏蔽！');
+                    },
+                    success: function (json) {
+                        //console.log(json);
+                        if(json){
+                            window.location.reload();
+                        }
+                    }
+                })
+            });
+        </script>
+        {include file="public:foot" /}

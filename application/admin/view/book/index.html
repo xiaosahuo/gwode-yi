@@ -1,0 +1,93 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">小说管理</a>
+    </ol>
+    <div class='content'>
+        <div class="toolbar-btn-action"></div>
+        <div class="block-content tab-content">
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="20%">ID</th>
+                                    <th>小说名称</th>
+                                   <!-- <th>排序</th>-->
+                                    <th>类别</th>
+                                    <th>状态</th>
+                                    <th class="column-right_button">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {volist name="data" id="vo"}
+                                <tr>
+                                    <td>{$vo.id} </td>
+                                    <td>{$vo.title} </td>
+                        <!--            <td>
+                                        <div class="col-lg-6" style="width: 20%;">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" width="10px" value="">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-primary" onclick="changeSort({$vo.id})" type="button">√</button>
+                                                </span>
+                                            </div>&lt;!&ndash; /input-group &ndash;&gt;
+                                        </div>
+                                    </td>-->
+                                    <td>{if condition="$vo.sex eq 1"} 男生 {else} 女生 {/if}</td>
+                                    <td>{if condition="$vo.status eq 1"} <a href="javascript:void(0);" onclick="changeDown({$vo.id})" style="color: green;">已上架</a> {else /} <a href="javascript:void(0);" onclick="changeUp({$vo.id})" style="color: red;">已下架</a> {/if} </td>
+
+                                    <td>
+                                        <a href="{:url('Book/chapterLists',['id' => $vo['id']])}"> 章节列表 </a>
+                                        <!--<a href="{:url('Book/del',['id' => $vo['id']])}"> 删除 </a>-->
+                                    </td>
+                                </tr>
+                                {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var url = "{:url('Book/changeStatus')}";
+        var sortUrl = "{:url('Book/changeSort')}";
+        function changeUp(id)
+        {
+            var data = {'id':id,'status':1};
+            $.post(url,data,function(res){
+                location.reload();
+            });
+        }
+        function changeDown(id)
+        {
+            var data = {'id':id,'status':0};
+            $.post(url,data,function(res){
+                location.reload();
+            });
+        }
+        function changeSort(id)
+        {
+            var aa = $(this).parent().parent().find('input').val();
+            console.log(aa);
+         //   alert(obj);
+            /*var data = {'id':id,'status':0};
+            $.post(sortUrl,data,function(res){
+                location.reload();
+            });*/
+        }
+
+
+    </script>
+    {include file="public:foot" /}

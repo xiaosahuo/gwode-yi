@@ -1,0 +1,92 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">订单列表</a>
+    </ol>
+    <div class='content'>
+        <form action="{:url('Channel/order')}" method="get">
+
+            <div class="col-xs-2">
+                <select  class="selectpicker show-tick form-control" name='paytype' id="paytype"  data-live-search="true">
+                    <option value="0">请选择订单类型</option>
+                    <option value="3" {if condition="$paytype eq 3"} selected {/if}>全部</option>
+                    <option value="1" {if condition="$paytype eq 1"} selected {/if}>VIP年费</option>
+                    <option value="2" {if condition="$paytype eq 2"} selected {/if}>普通充值</option>
+                </select>
+            </div>
+            <div class="col-xs-2">
+                <select  class="selectpicker show-tick form-control" name='paystatus' id="paystatus"  data-live-search="true">
+                    <option value="0">请选择支付状态</option>
+                    <option value="1" {if condition="$paystatus eq 1"} selected {/if}>未充值</option>
+                    <option value="2" {if condition="$paystatus eq 2"} selected {/if}>已充值</option>
+                </select>
+            </div>
+            <div class="col-xs-2">
+                <select  class="selectpicker show-tick form-control" name='type' id="type"  data-live-search="true">
+                    <option value="0">请选择支付方式</option>
+                    <option value="1" {if condition="$type eq 1"} selected {/if}>支付宝</option>
+                    <option value="2" {if condition="$type eq 2"} selected {/if}>微信</option>
+                </select>
+            </div>
+            <div class="col-xs-2">
+                <input type="date" class="form-control" placeholder="开始时间" name="starttime" value="{if isset($starttime)}{$starttime}{/if}">
+            </div>
+            <div class="col-xs-2">
+                <input type="date" class="form-control" placeholder="结束时间" name="endtime" value="{if isset($endtime)}{$endtime}{/if}">
+            </div>
+            <button type="submit"  class="btn btn-primary">查询</button>
+            <a href="{:url('Channel/exportData',['paytype'=>$paytype,'paystatus'=>$paystatus,'type'=>$type,'starttime'=>$starttime,'endtime'=>$endtime])}" class="btn btn btn-success">导出</a>
+        </form>
+        <div class="block-content tab-content">
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>订单类型</th>
+                                    <th>用户名称</th>
+                                    <th>充值金额</th>
+                                    <th>充值方式</th>
+                                    <th>充值状态</th>
+                                    <th>订单号</th>
+                                    <th>充值时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {empty name="data"}
+                                    <tr >
+                                        <td colspan="7" align="middle">暂无数据</td>
+                                    </tr>
+                                {else /}
+                                    {volist name="data" id="vo" key="k"}
+                                    <tr>
+                                        <td>{$k} </td>
+                                        <td>{if condition="$vo.paytype eq 1"} VIP年费 {else /} 普通充值 {/if} </td>
+                                        <td>{$vo.username} </td>
+                                        <td>{$vo.money} 元 </td>
+                                        <td>{if condition="$vo.type eq 1"} 支付宝 {else /} 微信 {/if} </td>
+                                        <td>{if condition="$vo.status eq 1"} 已充值 {else /} 未充值 {/if} </td>
+                                        <td>{$vo.payid} </td>
+                                        <td>{$vo.addtime|date="Y-m-d H:i:s",###}  </td>
+                                    </tr>
+                                    {/volist}
+                                {/empty}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {include file="public:foot" /}

@@ -1,0 +1,123 @@
+{include file="public:head" /}
+
+    <main id="main-container" style="min-height: 912px;">
+        <ol class="breadcrumb">
+            <a class="link-effect">升级管理</a>
+        </ol>
+
+        <div class='content'>
+
+            <div class="block-content">
+                <form class="form-builder row" name="form-builder" action="{:url('index/upgradeAdd')}" method="post" enctype="multipart/form-data">
+                    <div class="form-group col-md-12 " id="form_group_title">
+                        <label class="col-xs-5">渠道</label>
+                        <div class="col-xs-12">
+                            <select  class="selectpicker show-tick form-control" name='channelid' id="channelid"  data-live-search="true">
+                                {volist name="$list" id="vo"}
+                                <option value="{$vo.id}">{$vo.channel}</option>
+                                {/volist}
+                            </select>
+                            <div class="help-block">&nbsp;</div>
+                        </div>
+
+                        <label class="col-xs-12" for="apk">升级文件上传</label>
+                        <div class="col-xs-12 ">
+                            <input class="form-control" type="file" id="apk" required="required">
+                            <progress id="upload_progress" value="0" max="100" style="width:100%; height:20px;display: none;"></progress>
+                            <input type="hidden" id="address" name="address" value="">
+                            <div class="help-block">&nbsp;</div>
+                            <input class="form-control" type="button" id="btn_start" value="开始上传" style="width:10%;">
+                            <div class="help-block">&nbsp;</div>
+                        </div>
+
+                        <label class="col-xs-12">更新文字介绍</label>
+                        <div class="col-sm-12">
+                            <textarea class="form-control" cols="50" rows="10" id="content" name="content" placeholder="请输入文字介绍" required="required" ></textarea>
+                            <div class="help-block">必填</div>
+                        </div>
+                        <label class="col-xs-12">版本号名称</label>
+
+                        <div class="col-xs-5">
+                            <input class="form-control" type="text" id="version" name="version" value="" placeholder="请输入版本号名称例（1.1）" required="required">
+                            <div class="help-block">必填</div>
+
+                        </div>
+                        <label class="col-xs-12">版本号</label>
+
+                        <div class="col-xs-5">
+                            <input class="form-control" type="text" id="versionCode" name="versionCode" value="" placeholder="请输入版本号(当前最新版本号{$res['versionCode']})" required="required">
+                            <div class="help-block">必填</div>
+                        </div>
+                        <label class="col-xs-12">是否强制更新</label>
+                        <div class="col-xs-5">
+                            <input class="form-control" type="text" id="renew" name="renew" value="" placeholder="1表示强制0表示不强制（不填默认不强制）">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="col-xs-12">
+                            <button class="btn btn-minw btn-primary " target-form="form-builder" type="submit" autocomplete="off" id="submit">提交</button>
+                            <button class="btn btn-default" type="button" onclick="javascript:window.location.href='/admin/index/upgrade.html'">返回</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            var xhr = new XMLHttpRequest();
+            var progressBar = document.getElementById('upload_progress');
+            $('#btn_start').click(function() {
+                var channelId = $("#channelid  option:selected").val();
+                var uploadFile = document.getElementById('apk').files[0];
+
+                var formData = new FormData();
+                formData.append('apk', uploadFile);
+                formData.append('channelId', channelId);
+
+                if(uploadFile == null){
+                    alert("请先上传文件");return false;
+                }
+                $("#upload_progress").show();
+                $.ajax({
+                    type: "POST",
+                    url: "{:url('Index/uploadApk')}",
+                    data: formData , //这里上传的数据使用了formData 对象
+                    processData: false,
+                    contentType: false, //必须false才会自动加上正确的Content-Type
+                    //这里我们先拿到jQuery产生的 XMLHttpRequest对象，为其增加 progress 事件绑定，然后再返回交给ajax使用
+                    xhr: function() {
+                        var xhr = $.ajaxSettings.xhr();
+                        if (xhr.upload) {
+                            xhr.upload.onprogress = function(progress) {
+                                if (progress.lengthComputable) {
+                                    progressBar.max = progress.total;
+                                    progressBar.value = progress.loaded;
+                                }
+                            };
+                            xhr.upload.onloadstart = function() {
+                                console.log('started...');
+                            };
+                        }
+                        return xhr;
+                    }
+                }).done(function(resp) {
+                    var obj = JSON.parse(resp);
+                    if(obj.code ==  0){
+                        $("#address").val(obj.data.apk_address);
+                        alert('完成！'); return false;
+                    } else {
+                        alert(obj.msg); return false;
+                    }
+
+                }).fail(function(err) {
+                    alert('无法连接服务器！')
+                });
+            });
+
+        </script>
+        </body>
+        </html>
+
+        </script>
+        {include file="public:foot" /}

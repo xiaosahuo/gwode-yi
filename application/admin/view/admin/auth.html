@@ -1,0 +1,32 @@
+{include file="public:head" /}
+
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">权限管理</a>
+    </ol>
+
+    <div class='content'>
+
+        <div class="block-content">
+            <form class="form-builder row" name="form-builder" action="{:url('Admin/saveAuth')}" method="post">
+                {foreach name="authlist" item="vo" key="k" }
+                <div class="form-group col-md-12 " >
+                    <label class="col-xs-12" for="channel">{$k}</label>
+                    <div class="checkbox">
+                        {volist name="vo" id="v"}
+                            <label> <input type="checkbox" name="auth[]" value="{$v.auth_id}" {if condition="in_array($v['auth_id'],$userauthlist)"} checked = "checked" {/if}> {$v.action_name} </label>
+                        {/volist}
+                    </div>
+                </div>
+                {/foreach}
+
+                <input type="hidden" name="user_id" value="{$user_id}">
+                <div class="form-group col-md-12">
+                    <div class="col-xs-12">
+                        <button class="btn btn-minw btn-primary " target-form="form-builder" type="submit" autocomplete="off" id="submit">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {include file="public:foot" /}

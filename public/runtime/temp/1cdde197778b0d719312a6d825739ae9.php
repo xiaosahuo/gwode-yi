@@ -1,0 +1,263 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:85:"D:\PhpStudy\PHPTutorial\WWW\appdata\public/../application/index\view\index\index.html";i:1541243709;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-itunes-app" content="app-id=1128277830">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <script src="static/js/flexible.0.3.4.js"></script>
+    <link href="https://s.zhulang.com/images/zl-logo114.png" rel="apple-touch-icon-precomposed">
+    <title>逐浪小说网_免费小说,逐浪小说手机版,玄幻小说,都市小说,修真武侠,军事历史阅读下载</title>
+    <meta name="keywords" content="逐浪,逐浪手机版,逐浪wap,手机看小说,小说,小说网,都市小说,玄幻小说,修真小说,穿越小说,历史小说,网络小说,逐浪小说,原创网络文学">
+    <meta name="description" content="手机小说阅读,精彩小说尽在逐浪小说网。逐浪小说提供玄幻小说,武侠小说,网游小说,都市言情小说,历史军事小说,首发小说最新章节免费阅读！热门小说:绝世武神,我的美女总裁老婆,异世灵武天下,九阴九阳,天眼人生,天控者,官途。">
+    <link rel="stylesheet" href="/static/css/home-41c290bd8f.css" type="text/css">
+    <style>
+        .home-hd h1{ background-image: url(static/images/mlogo-170730.png); }
+    </style>
+    <meta name="shenma-site-verification" content="a5248959517b0ddf99346ec7e2c5db7d_1463552437">
+<//-45jdd3_bu-top-//>
+
+</head>
+
+<body ontouchstart >
+<div class="wrap">
+    <header class="pg-hd home-hd">
+        <h1>逐浪小说_逐浪网</h1>
+        <form action="https://m.zhulang.com/search/index.html" type="" id="home-sch">
+            <i class="iconfont icon-sch">&#xe607;</i>
+            <input type="text" class="kw" name="k" maxlength="40" placeholder="搜小说、作者" value="" />
+            <i class="iconfont icon-reset">&#xe612;</i>
+        </form>
+        <a href="/index/user/center.html" class="icon fr"><i class="iconfont">&#xe618;</i></a>
+    </header>
+
+    <div class="top-s">
+        <div class="swiper-container top-bnr" id="top-bnr" data-loop="true" data-auto="5">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="https://m.zhulang.com/507524/index.html" title="神级帝皇"><img  src="static/picture/s.gif" data-bg="https://i.zhulang.com/admin/bang/2018-10-29/5bd68913265b5.jpg" alt="神级帝皇"></a>
+                    <h3><span>神级帝皇</span><em>1/3</em></h3>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://m.zhulang.com/558449/index.html" title="兵王太子爷"><img  src="static/picture/s.gif" data-bg="https://i.zhulang.com/admin/bang/2018-10-29/5bd67c6543b7f.jpg" alt="兵王太子爷"></a>
+                    <h3><span>兵王太子爷</span><em>2/3</em></h3>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://m.zhulang.com/501364/index.html" title="幻世回眸"><img  src="static/picture/s.gif" data-bg="https://i.zhulang.com/admin/bang/2018-10-29/5bd67c2865479.jpg" alt="幻世回眸"></a>
+                    <h3><span>幻世回眸</span><em>3/3</em></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="com-sec">
+        <nav class="nav">
+            <ul class="clearfix">
+                <li>
+
+                    <a href="/index/user/shelf.html" >
+                        <i></i>
+                        <span>书架</span>
+                        <em class="update">更新</em>
+                    </a>
+                </li>
+                <li>
+                    <a href="/index/pay/index.html" >
+                        <i></i>
+                        <span>充值</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/index/user/max" >
+                        <i></i>
+                        <span>男生</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/index/user/girls">
+                        <i></i>
+                        <span>女生</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="n-app">
+                        <i></i>
+                        <span>客户端</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="read-last" id="read-last">
+            <a href="">
+                <i>推荐</i>
+                <span>帝王阁</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="com-sec bk-list recm-sec">
+        <div class="ch2">
+            <h2>编辑推荐</h2>
+        </div>
+        <ul>
+            <li>
+                    <a href="/index/user/details">
+                    <dl>
+                        <dt><img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/51/38/513820_x160.jpg"></dt>
+                        <dd>
+                            <h3>仙魔实录</h3>
+                            <h4>易鹰 | 古典仙侠</h4>
+                            <p>灵根不佳？没事，我勤能补拙！
+                                什么？你说那是骗傻子的，都寻长生了，谁还去偷奸耍滑。
+                                大不了我去双修，走捷径，这总行了吧。
+                                呵呵.....
+                                双修也不是那么简单的.....
+                                其实这就是个平凡的地球人，在莫名其妙的来到修真大陆后默默耕耘的故事。
+                                漫长而孤独的问道长生旅途中，有过幸喜，有过沮丧，在无奈中激起了荡气回肠的战歌。
+                                当然了，他终究还是会踏上人生巅峰的。</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <dl>
+                        <dt><img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/57/49/574985_x160.jpg"></dt>
+                        <dd>
+                            <h3>武炼天穹</h3>
+                            <h4>小疾风 | 异世大陆</h4>
+                            <p>贵族为天，平民遭难，堕入魔道，踏碎天穹！</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <dl>
+                        <dt><img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/46/29/462919_x160.jpg"></dt>
+                        <dd>
+                            <h3>紫尊王者</h3>
+                            <h4>逐浪小飞侠 | 异世大陆</h4>
+                            <p>出身显赫，遭奸人所陷，坠入凡间，成为孤儿。冬练三九，夏练三伏。遇佛杀佛，遇魔斩魔，终成俯瞰九天紫尊王者。</p>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="com-sec">
+        <div class="ch2">
+            <h2>原创男生</h2>
+        </div>
+
+        <ul class="smp-list">
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/57/45/574529_x160.jpg"><span>狂圣啸天</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/55/87/558771_x160.jpg"><span>极品升级系统</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/57/80/578053_x160.jpg"><span>鸿蒙古玉</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="smp-list">
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/58/2/580210_x160.jpg"><span>阳光背后的工地</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/55/87/558771_x160.jpg"><span>极品升级系统</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/book_cover/image/54/64/546476_x160.jpg"><span>引圣人间</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="link-bar">
+            <a href="" class="blue">进入男生频道<i>&#xe615;</i></a>
+        </div>
+    </section>
+
+    <section class="com-sec">
+        <div class="ch2">
+            <h2>女生专区</h2>
+        </div>
+
+        <ul class="smp-list">
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/xxs_book_cover/image/57/73/577360_x160.jpg"><span>天真有邪，萌宝无双</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/xxs_book_cover/image/57/23/572367_x160.jpg"><span>天价替身：总裁新娘不好当</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/xxs_book_cover/image/57/18/571812_x160.jpg"><span>冷面娇妻酷总裁</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="smp-list">
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/xxs_book_cover/image/47/9/470950_x160.jpg"><span>青春就是你的名字</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/xxs_book_cover/image/50/21/502120_x160.jpg"><span>总裁强宠小娇妻</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="static/picture/s.gif" data-src="https://i.zhulang.com/xxs_book_cover/image/51/41/514195_x160.jpg"><span>霸爱娇妻：陆先生，放肆宠</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="link-bar">
+            <a href="" class="blue">进入女生频道<i>&#xe615;</i></a>
+        </div>
+    </section>
+    <section class="app-down">
+        <a href="" class="app-link">下载逐浪小说App客户端</a>
+        <span>海量独家小说，完美阅读体验</span>
+    </section>
+
+    <div class="usr-btm">
+        <a href="" class="blue fl">返回电脑版</a>
+        <a href="#top" class="blue fr"><i class="icon iconfont">&#xe609;</i> 返回顶部</a>
+    </div>
+
+    <div class="btm-nav">
+        <div class="btm-sch">
+            <form action="" method="">
+                <input type="text" name="k" value="" maxlength="50" placeholder="搜索书名、作者、分类等">
+                <button></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="static/js/mlib.js"></script>
+<script type="text/javascript" src="static/js/swiper.min.js"></script>
+<script type="text/javascript" src="static/js/index-c32156fdb3.js"></script>
+</body>
+</html>

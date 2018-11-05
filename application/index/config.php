@@ -1,0 +1,26 @@
+<?php
+
+
+return [
+
+    'url_route_on' => true,
+
+    'view_replace_str'=>[
+        '__STATIC__' => '/static',
+        '__CSS__' => '/index/css',
+        '__JS__' => '/index/js',
+    ],
+
+    'DEFAULT_HEAD'  => 'http://'.$_SERVER['SERVER_NAME'].'/index/img/logo.png',
+    'APP_DOMAIN'    => 'http://'.$_SERVER['SERVER_NAME'],
+
+    //微信支付配置
+    'APP_ID'    => 'wx8d40eecd64f81a54',
+    'MCH_ID'    => '1512633001',
+
+    //支付宝支付配置
+    'APPID'         => '2018081461019403',
+    'PRIVATEKEY'    => 'MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCau74YO8Cm2NTjtDPpUoyTdyLBYkwdUFJ2/R1yasBGtJRyEDgJkvEbpnAXzRs2B2bvhBkg/cxOsOvxEoAPE0ydpprNAkYIq78hB6r28bEMMD+Ip2mGFh7YYdUmGKsM9EYDqFKEIglh8NJ0fWQwjgjcmxAyma2/Ft40oPr3laSTtt9sV0iLhioZ6MKfxCCTTcw+jWxu/OjcHv4nkzw4nI2b6oEXRX4O8aUbxmKt4d/bHo7RHqlQyQbjkK1RpXn34ZyZPpS+mKc0b5FrpdWD4z8FkUN3+13Hl0b7/rMsC5dBySL0/l2bSyrMCYzkTHwKwV9M4DCp+h4rv+Dxp/oECz0fAgMBAAECggEAATarvQDq9+QHd2m4ZoIRPC7ZBO9CbZBttSUzD+yqaWONLn/WEK0oWvEpO+aN6hSQyBwfHlUfPxbAIvnkKzoZhbsCx8zWw8alDxtCSgGHQ/M07Ftzxmtx/nx18YCMBuP7kJfHXeXucOg0nllFaeQTSbelnt/5rt/9CiihD0QLMGVhp3/vt9BEuCj5JETGkmWlYEcyPTfWmoNW+Cp8Aw4zbbP6SXRsu1JtfhZhY6askle84i7ksZ/NBUWaxlaAdaaib4tPlqdYNzQ+3uUzOPC/xHmX8TG4CETBHjrqeOuX/YrRQ/MeIiAOG5MH9e5R3Z6Pnnv/0OFesTsVqe2BM/aV4QKBgQDOJBuL9leNIHsnFgBj0eDhHDHpoj+MLCd+PA/tjzRqRqDlC5PuuTZTRo1P9Vizw86Ops9KpxdiPfUPmVXWYU5ZPdvzBqxMPydmmQEN5dOe+rLvRdfr0l6eglV9zr9Cqr883XMxGb1xvgI9Q8LsCtWcUWSw3GGTCeA2g45rDOVXBwKBgQDAKI/MpSBm+JXMuZ52caDUQvGqcBAgvu/J4NPnS6qi4gjeEk/ZLFBUkI4AxnMlm6QPJXDM+SLg4BEiOyljwtrwl0csMfrdLNWT15bGjSQw3V2fgf75b1nVzlA0cy3+W92q8IEr4xQU4aHwhIGx5c9A97AkuBZEHAIVgXCnIxULKQKBgH22eXImngf72f7hJQW69bhyuGGxx61VNBSAznnijmWNgwuLvwCjxOSOLxmnFxwx+mL2iY4OTm1kOXH04esmVmCIH/2agTLShNXF02XFVgQrATp4TpCLL5bdBwP9NJiUhqG4r0ovV1/pL3ZrP5ExnkmBPbW6AGtqZ2j3W8AfEjG7AoGAF/U2sJIp7wyxSJwf+K6EGdLa5KAiMqL7rJTedqkFdlduOZnY4L/YqCJ5wfj8JEU6eDT30maBhb4KBNWRfIGv4G1MD2OP3oGXg15OyySPzZPb92YyzxCmB7U4ZMGzi1IS2hwwTrN6LnxPP3iV3wNDCtuW140oIYfIbrv7uqryFbkCgYB9R+AUKTtWwvPOjsm3nwJlk/igWf4Ju0NIQNJV0WSCI2Z2gLWMXnunihzz5z/XguIP2IVYNZjm1RcJDs7FdS4fk+zSFYims76qjcaO2c7OrH/KCHflAmELW7manJ+wR8AfraN2peabu5JfZZUkSODze+r0cIyeV//9hJcXdTzyQg==',
+    'PUBLICKEY'     => 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq0VbkQ8Y51JihBouJP8RVm3NWFmWCU1YUMMK3QX8+jkArNNXd9g6Maen0X4kBAdHyQLVxvg8udIKd4JR2+q7zDIQm4gQicampB/wABSH1GfhciRn/Xkw4fv7aWdVfo7eQGhhy92KI2vQrSkz9E2eBjNrhEurgt3MSTNKkOf8XBusawXLXjpl8uoy+fxkRv9g50PK6gGSMpKUhUgYO30Z+yVHQ602fB/keNTHzY+0wUPm9l9Xo6Wx37XFgxq+/JW/Ec7YRvQxTlVExQHPgTdDX8s5HTF283v+d2yIsaFfEisFdgvN/RppLnhIYJlYiyuSfJzV44k7/1B2qoP3ki1tMQIDAQAB',
+
+];

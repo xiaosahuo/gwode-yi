@@ -1,0 +1,78 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">管理员列表</a>
+    </ol>
+    <div class='content'>
+        <div class="toolbar-btn-action">
+            <a title="新增" icon="fa fa-plus-circle" class="btn btn-primary" href="{:url('Admin/add')}">
+                +新增</a>
+        </div>
+        <div class="block-content tab-content">
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>序号ID</th>
+                                    <th>管理员账号</th>
+                                    <th>*</th>
+                                    <th>状态</th>
+                                    <th class="column-right_button">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {volist name="data" id="vo"}
+                                <tr>
+                                    <td>{$vo.id} </td>
+                                    <td>{$vo.username} </td>
+                                    <td> * </td>
+                                    <td>{if condition="$vo.status eq 1"} <a href="javascript:void(0);" onclick="changeDown({$vo.id})">正常</a> {else /} <a href="javascript:void(0);" onclick="changeUp({$vo.id})">禁用</a> {/if} </td>
+
+                                    <td>
+                                        <a href="{:url('Admin/auth',['id' => $vo['id']])}"> 权限管理 </a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <a href="{:url('Admin/del',['id' => $vo['id']])}"> 删除 </a>
+                                    </td>
+                                </tr>
+                                {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var url = "{:url('Admin/adminStatus')}";
+        function changeUp(id)
+        {
+            var data = {'id':id,'status':1};
+            $.post(url,data,function(res){
+                if(res.code == 0){
+                    alert(res.msg);
+                }
+                location.reload();
+            });
+        }
+        function changeDown(id)
+        {
+            var data = {'id':id,'status':0};
+            $.post(url,data,function(res){
+                if(res.code == 0){
+                    alert(res.msg);
+                }
+                location.reload();
+            });
+        }
+    </script>
+    {include file="public:foot" /}

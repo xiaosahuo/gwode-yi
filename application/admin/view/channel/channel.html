@@ -1,0 +1,55 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">渠道管理</a>
+    </ol>
+    <div class='content'>
+        <div class="toolbar-btn-action">
+            <a title="新增" icon="fa fa-plus-circle" class="btn btn-primary" href="{:url('Channel/addChannel')}">
+                +新增</a>
+        </div>
+        <div class="block-content tab-content">
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>序号ID</th>
+                                    <th>渠道名称</th>
+                                    <th>渠道别名</th>
+                                    <th>渠道地址</th>
+                                    <th class="column-right_button">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {volist name="data" id="vo"}
+                                <tr>
+                                    <td>{$vo.id} </td>
+                                    <td>{$vo.channel} </td>
+                                    <td>{$vo.channel_name} </td>
+                                    <td>{$vo.channel_address} </td>
+                                    <td>
+                                        <a href="{:url('Channel/editChannel',['id' => $vo['id']])}"> 编辑名称 </a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <a href="{:url('Channel/editChannelAddress',['id' => $vo['id']])}"> 编辑地址 </a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <a href="{:url('Channel/delChannel',['id' => $vo['id']])}"> 删除 </a>
+                                    </td>
+                                </tr>
+                                {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {include file="public:foot" /}

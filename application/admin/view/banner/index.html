@@ -1,0 +1,49 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">BANNER列表</a>
+    </ol>
+    <div class='content'>
+        <div class="toolbar-btn-action">
+            <a title="新增" icon="fa fa-plus-circle" class="btn btn-primary" href="{:url('Banner/add')}">
+                +新增</a>
+        </div>
+        <div class="block-content tab-content">
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>序号ID</th>
+                                    <th>关联书籍名称</th>
+                                    <th>BANNER图片</th>
+                                    <th>投放对象</th>
+                                    <th class="column-right_button">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {volist name="data" id="vo"}
+                                <tr>
+                                    <td>{$vo.id} </td>
+                                    <td>{$vo.title} </td>
+                                    <td><a href="{$vo.public}" target="_blank"><img src="{$vo.public}" alt="" width="60px" height="30px"></a></td>
+                                    <td> {if condition="$vo.sex eq 1"} 男  {/if} {if condition="$vo.sex eq 2"} 女 {/if} </td>
+                                    <td>
+                                        <a href="{:url('Banner/edit',['id' => $vo['id']])}"> 编辑 </a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <a href="{:url('Banner/del',['id' => $vo['id']])}"> 删除 </a>
+                                    </td>
+                                </tr>
+                                {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {include file="public:foot" /}

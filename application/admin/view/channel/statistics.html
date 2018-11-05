@@ -1,0 +1,164 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">支付统计</a>
+    </ol>
+    <div class='content'>
+        <!--<div class="container">-->
+        <form action="{:url('Channel/statistics')}" method="get">
+            <div class="col-xs-3">
+                <select  class="selectpicker show-tick form-control" name='channelid' id="channelid"  data-live-search="true">
+                    <option value="0">请选择渠道</option>
+                    {volist name="channellist" id="v"}
+                        <option value="{$v.id}" {if condition="$v.id eq $channelid"} selected {/if}>{$v.channel}</option>
+                    {/volist}
+                </select>
+            </div>
+            <button type="submit"  class="btn btn-primary">查询</button>
+        </form>
+       <!-- </div>-->
+        <div class="block-content tab-content">
+            <div class="col-md-3">
+                <div class="well">
+                    <b>今日充值</b>
+                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                        ¥<span data-bind="price: stats_today.paid_amount">{$stats.today.total_count} 元 </span>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6" style="padding:0">
+                                <strong>普通充值</strong>
+                                <div><b class="text-primary" data-bind="price: stats_today.welth_order_paid_amount">{$stats.today.welth_total} 元 </b></div>
+                                <div>已支付: <b class="text-warning" data-bind="text: stats_today.welth_order_paid_count">{$stats.today.welth_order_pay_amount}</b> 笔</div>
+                                <div>未支付: <b class="text-warning" data-bind="text: stats_today.welth_order_unpaid_count">{$stats.today.welth_order_unpay_amount}</b> 笔</div>
+                            </div>
+                            <div class="col-sm-6" style="padding:0">
+                                <strong>年费VIP会员</strong>
+                                <div><b class="text-primary" data-bind="price: stats_today.vip_order_paid_amount">{$stats.today.vip_total} 元 </b></div>
+                                <div>已支付: <b class="text-warning" data-bind="text: stats_today.vip_order_paid_count">{$stats.today.vip_order_pay_amount}</b> 笔</div>
+                                <div>未支付: <b class="text-warning" data-bind="text: stats_today.vip_order_unpaid_count">{$stats.today.vip_order_unpay_amount}</b> 笔</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="well">
+                    <b>昨日充值 </b>
+                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                        ¥<span data-bind="price: stats_yesterday.paid_amount">{$stats.yesterday.total_count} 元 </span>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6" style="padding:0">
+                                <strong>普通充值</strong>
+                                <div><b class="text-primary" data-bind="price: stats_yesterday.welth_order_paid_amount">{$stats.yesterday.welth_total} 元 </b></div>
+                                <div>已支付: <b class="text-warning" data-bind="text: stats_yesterday.welth_order_paid_count">{$stats.yesterday.welth_order_pay_amount}</b> 笔</div>
+                                <div>未支付: <b class="text-warning" data-bind="text: stats_yesterday.welth_order_unpaid_count">{$stats.yesterday.welth_order_unpay_amount}</b> 笔</div>
+
+                            </div>
+                            <div class="col-sm-6" style="padding:0">
+                                <strong>年费VIP会员</strong>
+                                <div><b class="text-primary" data-bind="price: stats_yesterday.vip_order_paid_amount">{$stats.yesterday.vip_total} 元 </b></div>
+                                <div>已支付: <b class="text-warning" data-bind="text: stats_yesterday.vip_order_paid_count">{$stats.yesterday.vip_order_pay_amount}</b> 笔</div>
+                                <div>未支付: <b class="text-warning" data-bind="text: stats_yesterday.vip_order_unpaid_count">{$stats.yesterday.vip_order_unpay_amount}</b> 笔</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="well">
+                    <b>本月充值 </b>
+                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                        ¥<span data-bind="price: stats_this_month.paid_amount">{$stats.month.total_count} 元 </span>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6" style="padding:0">
+                                <strong>普通充值</strong>
+                                <div><b class="text-primary" data-bind="price: stats_this_month.welth_order_paid_amount">{$stats.month.welth_total} 元 </b></div>
+                                <div>已支付: <b class="text-warning" data-bind="text: stats_this_month.welth_order_paid_count">{$stats.month.welth_order_pay_amount}</b> 笔</div>
+                                <div>未支付: <b class="text-warning" data-bind="text: stats_this_month.welth_order_unpaid_count">{$stats.month.welth_order_unpay_amount}</b> 笔</div>
+                            </div>
+                            <div class="col-sm-6" style="padding:0">
+                                <strong>年费VIP会员</strong>
+                                <div><b class="text-primary" data-bind="price: stats_this_month.vip_order_paid_amount">{$stats.month.vip_total} 元 </b></div>
+                                <div>已支付: <b class="text-warning" data-bind="text: stats_this_month.vip_order_paid_count">{$stats.month.vip_order_pay_amount}</b> 笔</div>
+                                <div>未支付: <b class="text-warning" data-bind="text: stats_this_month.vip_order_unpaid_count">{$stats.month.vip_order_unpay_amount}</b> 笔</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="well">
+                    <b>累计充值 </b>
+                    <div class="text-primary" style="font-size:32px;margin:5px 0">
+                        ¥<span data-bind="price: stats_all_time.paid_amount">{$stats.total.total_count} 元 </span>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6" style="padding:0">
+                                <strong>普通充值</strong>
+                                <div><b class="text-primary" data-bind="price: stats_all_time.welth_order_paid_amount">{$stats.total.welth_total} 元 </b></div>
+                                <div>已支付: <b class="text-warning" data-bind="text: stats_all_time.welth_order_paid_count">{$stats.total.welth_order_pay_amount}</b> 笔</div>
+                                <div>未支付: <b class="text-warning" data-bind="text: stats_all_time.welth_order_unpaid_count">{$stats.total.welth_order_unpay_amount}</b> 笔</div>
+                            </div>
+                            <div class="col-sm-6" style="padding:0">
+                                <strong>年费VIP会员</strong>
+                                <div><b class="text-primary" data-bind="price: stats_all_time.vip_order_paid_amount">{$stats.total.vip_total} 元 </b></div>
+                                <div>已支付: <b class="text-warning" data-bind="text: stats_all_time.vip_order_paid_count">{$stats.total.vip_order_pay_amount}</b> 笔</div>
+                                <div>未支付: <b class="text-warning" data-bind="text: stats_all_time.vip_order_unpaid_count">{$stats.total.vip_order_unpay_amount}</b> 笔</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>渠道别名</th>
+                                    <th>渠道地址</th>
+                                    <th>渠道首页打开章节</th>
+                                    <th>已充总金额</th>
+                                    <th>未充总金额</th>
+                                    <th>已充值笔数</th>
+                                    <th>未充值笔数</th>
+                                    <th class="column-right_button">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {volist name="channel_list" id="vo"}
+                                    <tr>
+                                        <td>{if condition="$vo.channel_name eq ''"} 未知 {else /} {$vo.channel_name} {/if} </td>
+                                        <td>{if condition="$vo.channel_address eq ''"} 暂无 {else /} {$vo.channel_address} {/if} </td>
+                                        <td>{$vo.btitle}-{$vo.chtitle} </td>
+                                        <td>{$vo.RechargeMoney} 元 </td>
+                                        <td>{$vo.NoRechargeMoney} 元 </td>
+                                        <td>{$vo.RechargeNumber} 笔 </td>
+                                        <td>{$vo.NoRechargeNumber} 笔 </td>
+                                        <td> <a href="{:url('Channel/statisticeDetail',['channel_id' => $vo['channel_id']])}"> 查看 </a> </td>
+                                    </tr>
+                                {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{include file="public:foot" /}

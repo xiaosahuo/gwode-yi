@@ -1,0 +1,121 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
+<html>
+	<head>
+		<meta http-equiv=Content-Type content="text/html; charset=utf-8">  
+		<title>APP下载商户版页面</title>
+	</head>
+	<body>
+		<!--wechat share icon -->
+		<div style="display:none;">
+			<img alt="" src="https://qkapp.chanpay.com:17181/img/download/f300" />
+		</div>
+		<div class="view-gray-body">
+			<div class="container-fluid view-fashion-content">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="phone-small">
+							<div class="row">
+								<!--左侧 -->
+								<div class="col-md-6 col-sm-6 col-xs-6 gray-appinfo-left">
+									<img src="ccbg.jpg" style="height:200px;margin-left: 60px;height: 489px;margin-top: 20px;">
+								</div>
+								<!--右侧 -->
+								<div class="col-md-5 col-md-offset-1 col-sm-5 col-xs-6 gray-appinfo-right">
+									<div style="padding-top:80px">
+										<div class="view row">
+											<div class="span12 margin-bottom-10" style="text-align:center;">
+													<div id="showtext">正在安装，请按Home键在桌面查看</div>
+													<div class="loading"></div>
+													<a href="http://bookapp.dtbooking.com/appp/app1.1-release.apk" class="btn-u btn-u-lg install-a" title="下载">点击安装</a>
+											</div>
+											<div class="span12 margin-bottom-30" style="text-align:center;">
+												<span> 适用于Android设备</span>
+											</div>
+										</div>
+									</div>
+									<div id="scan-qr" class="view row" style="padding-left:0px;padding-right:0px;">
+										<div class="span12" style="text-align:center;">
+											<div class="row margin-bottom-10">
+											<img class="img-qr" style="height: 150px; width: 150px" src="apk.png">
+											</div>
+											<div class="row margin-bottom-10">
+												<span>扫描二维码安装</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--二维码部分结束 -->
+					<div style="margin: -50px;left: 100px" class="col-md-12 col-sm-12 col-xs-12 app-info">
+						<form class="form-horizontal" action="/v1/app/appDownload" method="post">
+							<!--更新说明内容区 -->
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" style="word-bread:break-all;">
+									<div class="margin-bottom-40">
+										<h2>应用介绍</h2>
+											<!--应用介绍内容区 -->
+											<p><span id="box" style="width:50%;" >CC阅读是一款优秀的手机阅读软件，为用户提供高品质书籍内容及智能化的阅读体验。充分满足您对阅读个性化的需求，目前拥有玄幻奇幻，现代都市，仙侠武侠等20多类20万册精选小说，是您阅读的最佳选择。</span></p>
+										<!-- <h2>更新说明</h2>
+											更新说明内容区 
+											<p><span id="box" style="width:50%;" >CC阅读,有趣的阅读平台</span></p> -->
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<link rel="stylesheet" type="text/css" href="https://qkapp.chanpay.com:17181/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="https://qkapp.chanpay.com:17181/css/download/viewGray.css" />
+		<link rel="stylesheet" type="text/css" href="https://qkapp.chanpay.com:17181/css/download/style.css" />
+		<link rel="stylesheet" type="text/css" href="https://qkapp.chanpay.com:17181/css/download/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://qkapp.chanpay.com:17181/css/download/app.css" />
+		<style type="text/css">
+		 #box{word-break:normal; width:auto; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;}
+		 body{
+			overflow-x:hidden;
+			}
+		</style>
+	</body>
+</html>
+<script type="text/javascript">
+	function is_weixin() {
+	    var ua = navigator.userAgent.toLowerCase();
+	    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	}
+	var isWeixin = is_weixin();
+	var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+	function loadHtml(){
+		var div = document.createElement('div');
+		div.id = 'weixin-tip';
+		div.innerHTML = '<p><a href="javascript:void(0)"><img style="margin-left:400px;margin-top:-100px;"  src="https://qkapp.chanpay.com:17181/img/download/live_weixin.png" alt="微信打开"/></a></p>';
+		document.body.appendChild(div);
+	}
+	
+	function loadStyleText(cssText) {
+        var style = document.createElement('style');
+        style.rel = 'stylesheet';
+        style.type = 'text/css';
+        try {
+            style.appendChild(document.createTextNode(cssText));
+        } catch (e) {
+            style.styleSheet.cssText = cssText; //ie9以下
+        }
+           var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+           head.appendChild(style); 
+    }
+    var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}";
+	if(isWeixin){
+		loadHtml();
+		loadStyleText(cssText);
+	}
+</script>
+

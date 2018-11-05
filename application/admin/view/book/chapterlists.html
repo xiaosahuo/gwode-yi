@@ -1,0 +1,98 @@
+{include file="public:head" /}
+
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">章节管理</a>
+    </ol>
+    <div class='content'>
+        <div class="toolbar-btn-action"></div>
+        <div class="block-content tab-content">
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="20%">ID</th>
+                                    <th>章节名称</th>
+                                    <th>章节排序<button type="button" class="btn" onclick="updateSort()"> 更新 </button></th>
+                                    <th>是否VIP</th>
+                                </thead>
+                                <tbody>
+                                <form action="{:url('book/sortUpdate')}" id="myForm" method="post">
+                                {volist name="data" id="vo"}
+                                <tr>
+                                    <td>{$vo.id} </td>
+                                    <td>{$vo.title} </td>
+                                    <td>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" name="idx[]" value="{$vo.idx}">
+                                            <input type="hidden" name="id[]" value="{$vo.id}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input name="status" type="checkbox" idstatus="{$vo.id}" {if condition="$vo.isvip eq 1"} checked {/if} data-size="small" onchange="modifyVip(this)">
+                                    </td>
+                                </tr>
+                                {/volist}
+                                </form>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function updateSort()
+        {
+            $('#myForm').submit();
+        }
+
+    </script>
+    <script>
+       function modifyVip(obj)
+       {
+           var url = "{:url('Book/setVipStatus')}";
+           var id = $(obj).attr('idstatus');
+           if ($(obj).is(':checked')) {
+               var status = 1;
+           } else {
+               var status = 0;
+           }
+           var data = {"id":id,"status":status};
+           $.post(url,data,function(res){
+               location.reload();
+           });
+
+       }
+    </script>
+
+    <script>
+        var url = "{:url('Book/changeStatus')}";
+        function changeUp(id)
+        {
+            var data = {'id':id,'status':1};
+            $.post(url,data,function(res){
+                location.reload();
+            });
+        }
+        function changeDown(id)
+        {
+            var data = {'id':id,'status':0};
+            $.post(url,data,function(res){
+                location.reload();
+            });
+        }
+
+    </script>
+    {include file="public:foot" /}

@@ -1,0 +1,98 @@
+{include file="public:head" /}
+<main id="main-container" style="min-height: 912px;">
+    <ol class="breadcrumb">
+        <a class="link-effect">用户列表</a>
+    </ol>
+    <div class='content'>
+        <form action="{:url('User/statistics')}" method="get">
+            <div class="col-xs-2">
+                <select  class="selectpicker show-tick form-control" name='channel_id' id="channel_id"  data-live-search="true">
+                    <option value="0">请选择渠道</option>
+                    {volist name="channellist" id="v"}
+                    <option value="{$v.id}" {if condition="$v.id eq $channel_id"} selected {/if}>{$v.channel}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="col-xs-2">
+                <select  class="selectpicker show-tick form-control" name='logintype' id="logintype"  data-live-search="true">
+                    <option value="0">请选择登录方式</option>
+                    <option value="1" {if condition="$logintype eq 1"} selected {/if}>非三方登录</option>
+                    <option value="2" {if condition="$logintype eq 2"} selected {/if}>三方登录</option>
+                    <option value="3" {if condition="$logintype eq 3"} selected {/if}>手机号登录</option>
+                    <option value="4" {if condition="$logintype eq 4"} selected {/if}>微信登录</option>
+                    <option value="5" {if condition="$logintype eq 5"} selected {/if}>QQ登录</option>
+                    <option value="6" {if condition="$logintype eq 6"} selected {/if}>微博登录</option>
+
+                </select>
+            </div>
+
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="手机号" name="phone" value="{if isset($phone)}{$phone}{/if}">
+            </div>
+            <div class="col-xs-2">
+                <input type="date" class="form-control" placeholder="开始时间" name="starttime" value="{if isset($starttime)}{$starttime}{/if}">
+            </div>
+            <div class="col-xs-2">
+                <input type="date" class="form-control" placeholder="结束时间" name="endtime" value="{if isset($endtime)}{$endtime}{/if}">
+            </div>
+            <button type="submit"  class="btn btn-primary">查询</button>
+        </form>
+        <div class="block-content tab-content">
+            <div class="tab-pane active">
+                <div class="row module-list push-20">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-builder table-hover table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-1">ID</th>
+                                    <th class="col-xs-2">昵称</th>
+                                    <th class="col-xs-1">头像</th>
+                                    <th class="col-xs-2">电话</th>
+                                    <th class="col-xs-2">三方标识</th>
+                                    <th class="col-xs-2">三方类型</th>
+                                    <th class="col-xs-1">渠道</th>
+                                    <th class="col-xs-2">注册时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {empty name="list"}
+                                    <tr >
+                                        <td colspan="7" align="middle">暂无数据</td>
+                                    </tr>
+                                {else /}
+                                    {volist name="list" id="vo" key="k"}
+                                    <tr>
+                                        <td>{$vo.id} </td>
+                                        <td>{$vo.nickname} </td>
+                                        <td><img src="{$vo.img}" alt="{$vo.img}" style="width:25px;">  </td>
+                                        <td>{$vo.phone} </td>
+                                        <td>{$vo.open_id} </td>
+                                        <td>{if condition="$vo.logintype eq 1"}手机号
+                                            {elseif condition="$vo.logintype eq 1"}微信
+                                            {elseif condition="$vo.logintype eq 2"}QQ
+                                            {elseif condition="$vo.logintype eq 3"}微博
+                                            {else}未知
+                                            {/if}
+                                        </td>
+                                        <td>{$vo.channel} </td>
+                                        <td>{$vo.create_time|date="Y-m-d H:i:s",###}  </td>
+                                    </tr>
+                                    {/volist}
+                                {/empty}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-toolbar">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {include file="public:foot" /}

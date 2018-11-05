@@ -1,0 +1,648 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "\u4e66\u57ceAPP Api\u63a5\u53e3",
+        "description": "api\u63a5\u53e3.<br/>swagger\u8bed\u6cd5\u53c2\u8003[swagger-php](https://github.com/zircote/swagger-php/blob/master/docs/Getting-started.md)\u548c[swagger](http://swagger.io/specification/)",
+        "termsOfService": "",
+        "contact": {
+            "name": "API Team"
+        },
+        "license": {
+            "name": "Private"
+        },
+        "version": "1.0.0"
+    },
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/index/Index/login": {
+            "post": {
+                "tags": [
+                    "\u767b\u9646\u6ce8\u518c"
+                ],
+                "summary": "\u767b\u9646\u6ce8\u518c",
+                "description": "\u8fd4\u56de\u662f\u5426\u6210\u529f",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/index": {
+            "post": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u9996\u9875\u6570\u636e",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/change": {
+            "post": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u9996\u9875\u6362\u4e00\u6362",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/bookDetails": {
+            "post": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u4e66\u7c4d\u8be6\u60c5\u9875",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/row": {
+            "post": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u6392\u884c",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/maleSeries": {
+            "post": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u7537\u751f\u7cfb\u5217",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/nvSeries": {
+            "post": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u5973\u751f\u7cfb\u5217",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/listBooks": {
+            "post": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u4e66\u5e93\u4e66\u7c4d\u6570\u636e",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/bookCatalog": {
+            "post": {
+                "tags": [
+                    "\u4e66\u67b6"
+                ],
+                "summary": "\u7ae0\u8282\u76ee\u5f55",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/chapterDetails": {
+            "get": {
+                "tags": [
+                    "\u4e66\u67b6"
+                ],
+                "summary": "\u7ae0\u8282\u8be6\u60c5",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/frameBook": {
+            "get": {
+                "tags": [
+                    "\u4e66\u67b6"
+                ],
+                "summary": "\u4e66\u67b6\u4e66\u7c4d",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e\u3002",
+                "operationId": "getMyData",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/recommend": {
+            "get": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u5173\u952e\u5b57\u63a8\u8350",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/search": {
+            "post": {
+                "tags": [
+                    "\u4e66\u57ce"
+                ],
+                "summary": "\u641c\u7d22\u63a5\u53e3",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/upload": {
+            "post": {
+                "tags": [
+                    "\u6211\u7684"
+                ],
+                "summary": "\u6211\u7684\u8d44\u6599",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/upgrade": {
+            "get": {
+                "tags": [
+                    "\u5347\u7ea7\u63a5\u53e3"
+                ],
+                "summary": "\u5347\u7ea7\u63a5\u53e3",
+                "description": "\u8fd4\u56de\u6e20\u9053\u5347\u7ea7\u4fe1\u606f",
+                "responses": {
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/balance": {
+            "post": {
+                "tags": [
+                    "\u6211\u7684"
+                ],
+                "summary": "\u7528\u6237\u4e66\u5e01\u4f59\u989d",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/consume": {
+            "post": {
+                "tags": [
+                    "\u6211\u7684"
+                ],
+                "summary": "\u7528\u6237\u7ae0\u8282\u6d88\u8d39\u8bb0\u5f55",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/bookConsume": {
+            "post": {
+                "tags": [
+                    "\u6211\u7684"
+                ],
+                "summary": "\u7528\u6237\u5355\u672c\u6d88\u8d39\u8bb0\u5f55",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/bindingPhone": {
+            "post": {
+                "tags": [
+                    "\u6211\u7684"
+                ],
+                "summary": "\u7ed1\u5b9a\u624b\u673a\u53f7",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/rechargeLog": {
+            "post": {
+                "tags": [
+                    "\u6211\u7684"
+                ],
+                "summary": "\u7528\u6237\u5145\u503c\u8bb0\u5f55",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/land": {
+            "post": {
+                "tags": [
+                    "\u767b\u9646\u6ce8\u518c"
+                ],
+                "summary": "\u4e09\u65b9\u767b\u9646",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Index/verification": {
+            "post": {
+                "tags": [
+                    "\u767b\u9646\u6ce8\u518c"
+                ],
+                "summary": "\u53d1\u9001\u9a8c\u8bc1\u7801",
+                "description": "\u8fd4\u56de\u9996\u9875\u6570\u636e",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/index/Log/appLog": {
+            "post": {
+                "tags": [
+                    "\u65e5\u5fd7"
+                ],
+                "summary": "\u4e0a\u4f20app\u9519\u8bef\u65e5\u5fd7",
+                "description": "\u8fd4\u56de\u4fdd\u5b58\u662f\u5426\u6210\u529f",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": "raw",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true|false"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
