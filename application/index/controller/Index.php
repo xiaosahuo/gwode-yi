@@ -65,17 +65,14 @@ class Index extends Controller
     public function index()
     {
         header("content-type:text/html;charset=utf-8");
-        $bannerInfo = Db::table('ien_banner')->select();
         $data = [
             'seat' => 3
         ];
          $groom = Db::table('ien_home_page_copy')->field('bookid')->where($data)->limit(3)->select();
-        $books = [];
          foreach ($groom as $k => $v){
-             $books[$k] = Db::table('ien_book')->where('id',$v['bookid'])->select();
+             $books[$k] = Db::table('ien_book')->field(['public','title'])->where('id',$v['bookid'])->find();
          }
-         echo '<pre>';
-         var_dump($books);die;
+         $this->assign("books",$books);
         return $this->fetch();
     }
 
